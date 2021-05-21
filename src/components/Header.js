@@ -4,14 +4,12 @@ import Button from './Button'
 
 
 
-const Header = ( {title} ) => {
-  const onClick = () => {
-    return console.log("Clicked me");
-  }
+const Header = ( {title, onAdd, showAdd} ) => {
+
   return (
    <header className = 'header'>
      <h1> {title} </h1>
-     <Button color="steelblue" text="Add" onClick={onClick}/>
+     <Button color={showAdd ? 'steelblue' : 'green'} text={showAdd ? 'Close' : 'Add'} onClick={onAdd}/>
 
    
    </header>
@@ -20,9 +18,7 @@ const Header = ( {title} ) => {
 
 
 
-Header.propTypes = {
-  title: PropTypes.string
-}
+
 
 Header.defaultProps = {
   title: "Task Tracker"
